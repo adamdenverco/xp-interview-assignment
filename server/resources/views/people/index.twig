@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LinkedUp</title>
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1 class="col-sm py-3 border-bottom">People</h1>
+      </div>
+      <div class="row">
+
+        {% if persons|length > 0 %}
+
+          {% for person in persons %}
+            <div class="col-sm-6 col-md-4">
+              <div class="card my-3">
+                <div class="card-body">
+                  <h5 class="card-title">{{person.first_name}} {{person.last_name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted text-truncate">{{person.email}}</h6>
+                  <a href="http://localhost/ch1/people/{{person.id}} " class="card-link">View</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+        {% else %}
+
+          <div class="col-sm-6 col-md-4">
+            <div class="card my-3">
+              <div class="card-body">
+                <h5 class="card-title">There are no people yet</h5>
+              </div>
+            </div>
+          </div>
+
+        {% endif %}
+
+        <!--
+        <div class="col-sm-6 col-md-4">
+          <div class="card my-3">
+            <div class="card-body">
+              <h5 class="card-title">Astrid Block</h5>
+              <h6 class="card-subtitle mb-2 text-muted text-truncate">astrid.block@example.com</h6>
+              <a href="http://localhost/ch1/people/1" class="card-link">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="card my-3">
+            <div class="card-body">
+              <h5 class="card-title">Emil Rice</h5>
+              <h6 class="card-subtitle mb-2 text-muted text-truncate">emil.rice@example.net</h6>
+              <a href="http://localhost/ch1/people/1" class="card-link">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="card my-3">
+            <div class="card-body">
+              <h5 class="card-title">Ozella Nicolas</h5>
+              <h6 class="card-subtitle mb-2 text-muted text-truncate">ozella.nicolas@example.org</h6>
+              <a href="http://localhost/ch1/people/1" class="card-link">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="card my-3">
+            <div class="card-body">
+              <h5 class="card-title">Maida Rempel</h5>
+              <h6 class="card-subtitle mb-2 text-muted text-truncate">maida.rempel@example.net</h6>
+              <a href="http://localhost/ch1/people/1" class="card-link">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="card my-3">
+            <div class="card-body">
+              <h5 class="card-title">Florida Greenholt</h5>
+              <h6 class="card-subtitle mb-2 text-muted text-truncate">florida.greenholt@example.org</h6>
+              <a href="http://localhost/ch1/people/1" class="card-link">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="card my-3">
+            <div class="card-body">
+              <h5 class="card-title">Jackeline Macejkovic</h5>
+              <h6 class="card-subtitle mb-2 text-muted text-truncate">jackeline.macejkovic@example.com</h6>
+              <a href="http://localhost/ch1/people/1" class="card-link">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="card my-3">
+            <div class="card-body">
+              <h5 class="card-title">Delbert Wiegand</h5>
+              <h6 class="card-subtitle mb-2 text-muted text-truncate">delbert.wiegand@example.org</h6>
+              <a href="http://localhost/ch1/people/1" class="card-link">View</a>
+            </div>
+          </div>
+        </div>
+        -->
+
+      </div>
+    </div>
+  </body>
+</html>

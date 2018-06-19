@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ozella Nicolas - LinkedUp</title>
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm py-3 border-bottom">
+          <div class="d-flex justify-content-between">
+            <h1>{{ person.first_name }} {{ person.last_name }}</h1>
+            <a class="pull-right" href="http://localhost/ch1/people">View List</a>
+          </div>
+        </div>
+      </div>
+      <div class="row my-3">
+          <div class="col-sm-4">
+            <div class="card">
+              <img class="card-img-top" src="{{ person.gravatar }}" alt="{{ person.first_name }} {{ person.last_name }}" />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <h5>Name</h5>
+            <p>{{ person.last_name }}, {{ person.first_name }}</p>
+            <h5>Email Address</h5>
+            <p>
+              <a href="mailto:{{ person.email }}">{{ person.email }}</a>
+            </p>
+
+            {% if person.street and person.city and person.state and person.postal_code %}
+            <h5>Address</h5>
+            <p>
+              {{ person.street }}<br/>
+              {{ person.city }} {{ person.state }}, {{ person.postal_code }}
+            </p>
+            {% endif %}
+
+            {% if person.colleagues|length > 0 %}
+              <h5>Colleagues</h5>
+              <div class="d-flex flex-column">
+                count: {{ person.colleagues|length }}<br/>
+                  {% for colleague in person.colleagues %}
+                    <a href="http://localhost/ch1/people/{{colleague.id}}">{{colleague.first_name}} {{colleague.last_name}}</a>
+                  {% endfor %}
+              </div>
+            {% endif %}
+          
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
